@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Task 6</title>
+</head>
+<style>
+    label{
+        font-weight: bolder;
+    }
+</style>
+<body>
+    <h1 style="color: blue;">Registration Form</h1>
+    <form action="#">
+        <label for="fname">First Name: </label>
+        <input type="text" id="fname"> <br> <br>
+        <label for="lname">Last Name: </label>
+        <input type="text" id="lname"> <br><br>
+        <label for="email">Email: </label>
+        <input type="email" id="email"> <br><br>
+        <label>Gender</label>
+        <input type="radio" name="gender" id="genderm" value="male">
+        <label for="genderm">Male</label>
+        <input type="radio" name="gender" id="genderf" value="female">
+        <label for="genderf">Female</label><br> <br>
+        <label for="age">Age: </label>
+        <input type="number" id="age"> <br><br>
+        <label for="phone">Phone Number: </label>
+        <input type="tel" id="phone"> <br><br>
+        <label for="address">Address: </label>
+        <textarea id="address" rows="5" cols="30"></textarea> <br><br>
+        <label for="state">State: </label>
+        <input type="text" id="state"> <br><br>
+        <label for="country">Country: </label>
+        <select id="country">
+            <option value="none">Choose your country</option>
+            <option value="india">India</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+        </select> <br> <br>
+        <label>Language: </label>
+        <input type="checkbox" name="lang" id="lang1" value="english">
+        <label for="lang1">English</label>
+        <input type="checkbox" name="lang" id="lang2" value="kannada">
+        <label for="lang2">Kannada</label>
+        <input type="checkbox" name="lang" id="lang3" value="hindi">
+        <label for="lang3">Hindi</label>
+        <input type="checkbox" name="lang" id="lang4" value="telgu">
+        <label for="lang4">Telgu</label> <br><br>
+        <input type="checkbox" name="declaration" id="declaration">I hereby declare all the given details are true <br><br>
+        <input type="submit" name="register" id="register" value="Register">
+    </form>
+</body>
+</html>
