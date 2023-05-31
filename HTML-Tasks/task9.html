@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>HTML Task 9</title>
+  <style>
+    table{
+        border-collapse: collapse;
+        border: 6px solid cornflowerblue;
+    }
+    td {
+      border: 1px solid black;
+    }
+    iframe {
+      border: 0px;
+    }
+  </style>
+</head>
+
+<body>
+    <div>
+        <table>
+            <tr>
+              <td><iframe src="frame1.html" width="100%" height="200px"></iframe></td>
+              <td rowspan="2"><iframe src="frame3.html" width="100%" height="400px"></iframe></td>
+              <td rowspan="2"><iframe src="frame4.html" width="100%" height="400px"></iframe></td>
+            </tr>
+            <tr>
+              <td><iframe src="frame2.html" width="100%" height="200px"></iframe></td>
+            </tr>
+          </table>
+        </body>
+    </div>
+</html>
