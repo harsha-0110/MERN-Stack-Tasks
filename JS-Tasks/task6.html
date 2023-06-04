@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task 6</title>
+    <script>
+        function sortString() {
+            var inputString = document.getElementById("stringInput").value;
+            var sortedString = inputString.split('').sort().join('');
+            document.getElementById("result").innerHTML = "Sorted String: " + sortedString;
+        }
+    </script>
+</head>
+<body>
+    <label for="stringInput">Enter a string:</label>
+    <input type="text" id="stringInput">
+    <button onclick="sortString()">Sort</button>
+    <p id="result"></p>
+</body>
+</html>

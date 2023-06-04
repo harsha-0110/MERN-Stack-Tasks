@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Task 11</title>
+  <style>
+    .error-message {
+      color: red;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      width: 600px;
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(to bottom, #fffed8, #d373bd);
+    }
+    h2{
+      text-align: center;
+      color: blue;
+      font-weight: bold;
+    }
+    
+    .lab{
+      text-align: right;
+      font-weight: bold;
+    }
+    .dec{
+      float: left;
+    }
+    .inp{
+      width: 98%;
+      margin-bottom: 10px;
+    }
+    .spn{
+      text-align: left;
+    }
+    select{
+      float: left;
+      margin-bottom: 10px;
+    }
+    input[type ="radio"]{
+      margin-bottom: 10px;
+    }
+    input[value="REGISTER"]{
+      color: white;
+      background-color: red;
+      font-weight: bold;
+      padding: 3px 10px 3px 10px;
+      border-radius: 15px;
+    }
+    
+  </style>
+</head>
+<body>
+  <form id="registrationForm" action="#" method="POST">
+    <h2>Registration Form</h2>
+    <table>
+      <tr>
+        <td class="lab"><label for="fname">First Name:</label></td>
+        <td><input class="inp" type="text" id="fname" name="fname"></td>
+        <td class="spn"><span id="fnameError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="lname">Last Name:</label></td>
+        <td><input class="inp" type="text" id="lname" name="lname"></td>
+        <td class="spn"><span id="lnameError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="email">Email:</label></td>
+        <td><input class="inp" type="email" id="email" name="email"></td>
+        <td class="spn"><span id="emailError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="password">Password:</label></td>
+        <td><input class="inp" type="password" id="password" name="password"></td>
+        <td class="spn"><span id="passwordError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="confirm_password">Re-enter Password:</label></td>
+        <td><input class="inp" type="password" id="confirm_password" name="confirm_password"></td>
+        <td class="spn"><span id="confirmPasswordError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="gender">Gender:</label></td>
+        <td style="text-align: left;">
+          <input type="radio" id="male" name="gender" value="male">
+          <label for="male">Male</label><br>
+          <input type="radio" id="female" name="gender" value="female">
+          <label for="female">Female</label>
+        </td>
+        <td class="spn"><span id="genderError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="age">Age:</label></td>
+        <td><input class="inp" type="number" id="age" name="age"></td>
+        <td class="spn"><span id="ageError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="phno">Phone Number:</label></td>
+        <td><input class="inp" type="tel" id="phno" name="phno"></td>
+        <td class="spn"><span id="phnoError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="address">Address:</label></td>
+        <td><textarea class="inp" id="address" name="address"></textarea></td>
+        <td class="spn"><span id="addressError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="state">State:</label></td>
+        <td><input class="inp" type="text" id="state" name="state"></td>
+        <td class="spn"><span id="stateError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="country">Country:</label></td>
+        <td>
+          <select id="country" name="country">
+            <option value="">Select a country</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">United Kingdom</option>
+          </select>
+        </td>
+        <td><span id="countryError" class="error-message"></span></td>
+      </tr>
+      <tr>
+        <td class="lab"><label for="languages">Languages Known:</label></td>
+        <td>
+          <input type="checkbox" id="english" name="languages" value="english">
+          <label for="english">English</label>
+          <input type="checkbox" id="kannada" name="languages" value="kannada">
+          <label for="kannada">Kannada</label>
+          <input type="checkbox" id="hindi" name="languages" value="hindi">
+          <label for="hindi">Hindi</label>
+          <input type="checkbox" id="telugu" name="languages" value="telugu">
+          <label for="telugu">Telugu</label>
+        </td>
+        <td><span id="languagesError" class="error-message"></span></td>
+      </tr>
+    </table>
+    <input type="checkbox" id="declaration" name="declaration" class="dec">
+    <label for="declaration" class="dec">Hereby I declare all the given details are true</label><br>
+    <p>Login to <a href="http://ethnus.com/">Ethnus</a> website.</p>
+    <input type="submit" value="REGISTER">
+  </form>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+    function validateForm() {
+      resetErrors();
+
+      const fname = document.getElementById('fname').value.trim();
+      const lname = document.getElementById('lname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm_password').value.trim();
+      const gender = document.querySelector('input[name="gender"]:checked');
+      const age = document.getElementById('age').value.trim();
+      const phno = document.getElementById('phno').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const state = document.getElementById('state').value.trim();
+      const country = document.getElementById('country').value;
+      const languages = document.querySelectorAll('input[name="languages"]:checked');
+      const declaration = document.getElementById('declaration').checked;
+
+      let isValid = true;
+
+      if (fname === '') {
+        displayError('fnameError', 'POOR');
+        isValid = false;
+      }
+
+      if (lname === '') {
+        displayError('lnameError', 'POOR');
+        isValid = false;
+      }
+
+      if (email === '') {
+        displayError('emailError', 'POOR');
+        isValid = false;
+      }
+
+      if (password === '') {
+        displayError('passwordError', 'POOR');
+        isValid = false;
+      }
+
+      if (confirmPassword === '') {
+        displayError('confirmPasswordError', 'POOR OR MISMATCH');
+        isValid = false;
+      } else if (confirmPassword !== password) {
+        displayError('confirmPasswordError', 'POOR OR MISMATCH');
+        isValid = false;
+      }
+
+      if (age === '') {
+        displayError('ageError', 'POOR');
+        isValid = false;
+      } else if (isNaN(age) || age < 1 || age > 120) {
+        displayError('ageError', 'POOR');
+        isValid = false;
+      }
+
+      if (phno === '') {
+        displayError('phnoError', 'POOR');
+        isValid = false;
+      } else if (!validatePhoneNumber(phno)) {
+        displayError('phnoError', 'POOR');
+        isValid = false;
+      }
+
+      if (address === '') {
+        displayError('addressError', 'POOR');
+        isValid = false;
+      }
+
+      if (state === '') {
+        displayError('stateError', 'POOR');
+        isValid = false;
+      }
+
+      if (isValid) {
+        document.getElementById('registrationForm').submit();
+      }
+    }
+
+    function validateEmail(email) {
+      // Simple email validation regex pattern
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+
+    function validatePhoneNumber(phno) {
+      // Simple phone number validation regex pattern
+      const phonePattern = /^[0-9]{10}$/;
+      return phonePattern.test(phno);
+    }
+
+    function resetErrors() {
+      const errorElements = document.getElementsByClassName('error-message');
+      for (let i = 0; i < errorElements.length; i++) {
+        errorElements[i].innerHTML = '';
+      }
+    }
+
+    function displayError(elementId, errorMessage) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.innerHTML = errorMessage;
+    }
+  </script>
+</body>
+</html>
+
+

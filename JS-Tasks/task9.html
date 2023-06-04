@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task 9</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: larger;
+            background-color: #a22a57;
+            color: white;
+        }
+
+        .container {
+            width: max-content;
+            padding: 20px;
+            background-color: #752041;
+            text-align: center;
+            padding-left: 75px;
+            padding-right: 75px;
+        }
+        label{
+            float: left;
+        }
+        .inpfield{
+            border: none;
+            float: left;
+            margin: 4px;
+            width: 100%;
+            height: 22px;
+        }
+        textarea{
+            float: left;
+            width: 99%;
+        }
+        select{
+            float: left;
+            border: none;
+            height: 25px;
+        }
+        button{
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 40px;
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <table>
+                <tr>
+                    <td><label for="nameInput">Name:</label></td>
+                    <td><input class="inpfield" type="text" id="nameInput" placeholder="your name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="emailInput">Email:</label></td>
+                    <td><input class="inpfield" type="email" id="emailInput" placeholder="your email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="passwordInput">Password:</label></td>
+                    <td><input class="inpfield" type="password" id="passwordInput" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phoneInput">Phone Number:</label></td>
+                    <td><input class="inpfield" type="tel" id="phoneInput" required></td>
+                </tr>
+                <tr>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        <label>Male:<input type="radio" name="gender" value="male"></label>
+                        <label>Female:<input type="radio" name="gender" value="female"> </label>
+                        <label>Other:<input type="radio" name="gender" value="other"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="languageSelect">Language:</label></td>
+                    <td>
+                        <select id="languageSelect" required>
+                            <option value="" selected>Select Language</option>
+                            <option value="english">English</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="french">French</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="zipcodeInput">Zip Code:</label></td>
+                    <td><input class="inpfield" type="text" id="zipcodeInput" required></td>
+                </tr>
+                <tr>
+                    <td><label for="aboutTextarea">About:</label></td>
+                    <td><textarea id="aboutTextarea" rows="4" placeholder="about yourself" required></textarea></td>
+                </tr>
+            </table>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

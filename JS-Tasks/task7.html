@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task 7</title>
+    <script>
+        function multiply() {
+            var num1 = parseFloat(document.getElementById("num1Input").value);
+            var num2 = parseFloat(document.getElementById("num2Input").value);
+
+            var multiplicationResult = num1 * num2;
+
+            document.getElementById("result").innerHTML = "The Result is: <br>" + multiplicationResult;
+        }
+
+        function divide() {
+            var num1 = parseFloat(document.getElementById("num1Input").value);
+            var num2 = parseFloat(document.getElementById("num2Input").value);
+
+            var divisionResult = num1 / num2;
+
+            document.getElementById("result").innerHTML = "The Result is: <br>" + divisionResult;
+        }
+    </script>
+</head>
+<body>
+    <label for="num1Input">Enter number 1:</label>
+    <input type="number" id="num1Input"><br>
+    <label for="num2Input">Enter number 2:</label>
+    <input type="number" id="num2Input"><br>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
+    <p id="result"></p>
+</body>
+</html>

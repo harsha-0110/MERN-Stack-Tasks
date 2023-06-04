@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Task 8</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        #movingImage{
+            margin-left: -500px;
+        }
+        #movingImage {
+            position: relative;
+            left: 0;
+            transition: left 1s linear;
+        }
+    </style>
+    <script>
+        var animationInterval;
+
+        function moveImage() {
+            var image = document.getElementById("movingImage");
+            var currentPosition = parseInt(image.style.left) || 0;
+            var newPosition = currentPosition + 10;
+
+            image.style.left = newPosition + "px";
+
+            animationInterval = requestAnimationFrame(moveImage);
+        }
+
+        function startAnimation() {
+            animationInterval = requestAnimationFrame(moveImage);
+        }
+
+        function stopAnimation() {
+            cancelAnimationFrame(animationInterval);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img id="movingImage" src="train.png" alt="Moving Image" width="300px"><br><br>
+        <h1 style="color: darkblue;">Click the following buttons to handle animation</h1>
+        <button onclick="startAnimation()">Start</button>
+        <button onclick="stopAnimation()">Stop</button>
+    </div>
+    
+    
+</body>
+</html>

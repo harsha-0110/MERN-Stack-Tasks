@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Task 3</title>
+  <style>
+    .error {
+      color: red;
+    }
+    table{
+        text-align: right;
+    }
+  </style>
+  <script>
+    function validateForm() {
+      var name = document.forms["Form"]["name"].value;
+      var email = document.forms["Form"]["email"].value;
+      var website = document.forms["Form"]["website"].value;
+      var message = document.forms["Form"]["message"].value;
+      var isValid = true;
+
+      if (name === "") {
+        document.getElementById("name").style.borderColor = "red";
+        document.getElementById("nameError").innerHTML = "This field is required";
+        isValid = false;
+      } else {
+        document.getElementById("name").style.borderColor = "";
+        document.getElementById("nameError").innerHTML = "";
+      }
+
+      if (email === "") {
+        document.getElementById("email").style.borderColor = "red";
+        document.getElementById("emailError").innerHTML = "A valid email addess is required";
+        isValid = false;
+      } else {
+        document.getElementById("email").style.borderColor = "";
+        document.getElementById("emailError").innerHTML = "";
+      }
+
+      if (website === "") {
+        document.getElementById("website").style.borderColor = "red";
+        document.getElementById("websiteError").innerHTML = "A valid url is required";
+        isValid = false;
+      } else {
+        document.getElementById("website").style.borderColor = "";
+        document.getElementById("websiteError").innerHTML = "";
+      }
+
+      if (message === "") {
+        document.getElementById("message").style.borderColor = "red";
+        document.getElementById("messageError").innerHTML = "This field is required";
+        isValid = false;
+      } else {
+        document.getElementById("message").style.borderColor = "";
+        document.getElementById("messageError").innerHTML = "";
+      }
+
+      return isValid;
+    }
+  </script>
+</head>
+<body>
+  <form name="Form" onsubmit="return validateForm()">
+    <table>
+      <tr>
+        <td><label for="name">Name:</label></td>
+        <td><input type="text" id="name" name="name"></td>
+        <td><span id="nameError" class="error"></span></td>
+      </tr>
+      <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="email" id="email" name="email"></td>
+        <td><span id="emailError" class="error"></span></td>
+      </tr>
+      <tr>
+        <td><label for="website">Website:</label></td>
+        <td><input type="text" id="website" name="website"></td>
+        <td><span id="websiteError" class="error"></span></td>
+      </tr>
+      <tr>
+        <td><label for="message">Message:</label></td>
+        <td><textarea id="message" name="message"></textarea></td>
+        <td><span id="messageError" class="error"></span></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td style="text-align: left;"><input type="submit" value="Submit"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
